@@ -101,14 +101,14 @@ spc <- function(
   if(!(is.null(options$xAxisLabel))){
     xlabel <- options$xAxisLabel
   } else {
-    xlabel <- "Date"
+    xlabel <- NULL
   }
 
   #set y axis label
   if(!(is.null(options$yAxisLabel))){
     ylabel <- options$yAxisLabel
   } else {
-    ylabel <- "Value"
+    ylabel <- NULL
   }
   
   #set y axis breaks
