@@ -141,8 +141,6 @@ spc <- function(
     "free"
   }
 
-
-
   #set percentage y axis
   if(!(is.null(options$percentageYAxis))){ # Check if Y values are percentages
     if(is.numeric(options$percentageYAxis)){
@@ -154,6 +152,12 @@ spc <- function(
     convertToPercentages <- 0
   }
 
+  #set the theme override if provided, or NULL if not
+  if(is.null(options$themeOverride)){
+    themeOverride = NULL
+  } else {
+    themeOverride = options$themeOverride
+  }
 
   ## Plot the dots SPC logic ----
   # Begin plot the dots logical tests
@@ -267,7 +271,8 @@ spc <- function(
       xAxisDateFormat = xAxisDateFormat,
       convertToPercentages = convertToPercentages,
       facetScales = facetScales,
-      yAxisBreaks = yAxisBreaks
+      yAxisBreaks = yAxisBreaks,
+      themeOverride = themeOverride
     )
 
     #make and return the plot

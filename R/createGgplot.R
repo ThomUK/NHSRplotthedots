@@ -82,6 +82,10 @@ createGgplot <- function(df, facetField, plotOptions){
     }
   }
 
+  #as a final step, apply any theme over-ride passed in by the user
+  plot <- plot +
+    plotOptions$themeOverride
+
   return(plot)
 
 }
