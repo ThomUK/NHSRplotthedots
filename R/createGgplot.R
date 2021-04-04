@@ -48,7 +48,12 @@ createGgplot <- function(df, facetField, plotOptions){
     xlab(label = plotOptions$xlabel) +
     ylab(label = plotOptions$ylabel) +
     scale_x_date(breaks=plotOptions$xaxislabels, labels = format(plotOptions$xaxislabels, format = plotOptions$xAxisDateFormat)) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    theme(
+      axis.text.x = element_text(angle = 90, hjust = 1),
+      panel.grid.major.x = element_blank(), #remove major x gridlines
+      panel.grid.minor.x = element_blank() #remove minor x gridlines
+
+    )
 
   #if the plot is not faceted (ie it's the default facet column name)
   if(facetField == "pseudo_facet_col_name"){
