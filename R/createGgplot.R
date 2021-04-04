@@ -47,7 +47,6 @@ createGgplot <- function(df, facetField, plotOptions){
     ggtitle(label = plotOptions$plottitle) +
     xlab(label = plotOptions$xlabel) +
     ylab(label = plotOptions$ylabel) +
-    theme(plot.title = element_text(hjust = 0.5)) +
     scale_x_date(breaks=plotOptions$xaxislabels, labels = format(plotOptions$xaxislabels, format = plotOptions$xAxisDateFormat)) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
