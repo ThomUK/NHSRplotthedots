@@ -80,7 +80,7 @@ spc <- function(
   if(!(is.null(options$pointSize))){
     pointSize <- options$pointSize
   } else {
-    pointSize = 2
+    pointSize = 4
   }
 
   #set x axis date format
