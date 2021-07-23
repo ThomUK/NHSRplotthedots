@@ -80,7 +80,7 @@ test_that("ggplot title and axis labels can be modified with options", {
   expect_identical(result$labels$y, "New Y Label")
 })
 
-test_that("limits can be rebased at an intervention point", {
+test_that("limits can be rebased at an intervention point (using the column name API)", {
   # arrange
   data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
   date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
@@ -98,7 +98,24 @@ test_that("limits can be rebased at an intervention point", {
   # TODO: add assertions for limit recalculations in data frame and visible lines on plot
 })
 
-test_that("limits can be rebased at multiple intervention points", {
+test_that("limits can be rebased at an intervention point (using the vector of dates API)", {
+  # arrange
+  data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+  date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
+  df <- tibble(data, date)
+  options <- list(
+    rebase = c("2021-03-25")
+  )
+
+  # act
+  result <- suppressMessages(spc(df, "data", "date", options = options))
+
+  # assert
+  expect_s3_class(result, "ggplot")
+  # TODO: add assertions for limit recalculations in data frame and visible lines on plot
+})
+
+test_that("limits can be rebased at multiple intervention points (using the column name API)", {
   # arrange
   data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
   date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
@@ -106,6 +123,23 @@ test_that("limits can be rebased at multiple intervention points", {
   df <- tibble(data, date, intervention)
   options <- list(
     rebase = "intervention"
+  )
+
+  # act
+  result <- suppressMessages(spc(df, "data", "date", options = options))
+
+  # assert
+  expect_s3_class(result, "ggplot")
+  # TODO: add assertions for limit recalculations in data frame and visible lines on plot
+})
+
+test_that("limits can be rebased at multiple intervention points (using the vector of dates API)", {
+  # arrange
+  data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+  date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
+  df <- tibble(data, date)
+  options <- list(
+    rebase = c("2021-03-25", "2021-03-29")
   )
 
   # act
