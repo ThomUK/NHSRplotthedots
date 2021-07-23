@@ -81,9 +81,9 @@ spc <- function(.data,
   # Declare improvement direction as integer
   improvementDirection <- if (is.null(options$improvementDirection)) {
     1
-  } else if (options$improvementDirection == "increase") {
+  } else if (tolower(options$improvementDirection) == "increase") {
     1
-  } else if (options$improvementDirection == "decrease") {
+  } else if (tolower(options$improvementDirection) == "decrease") {
     -1
   } else {
     options$improvementDirection

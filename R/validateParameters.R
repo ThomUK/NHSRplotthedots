@@ -62,9 +62,9 @@ validateParameters <- function(df, valueField, dateField, facetField, options) {
 
   # if provided, options$improvementDirection should equal "increase", 1, "decrease", or -1
   if (!is.null(options$improvementDirection) &&
-    options$improvementDirection != "increase" &&
+    tolower(options$improvementDirection) != "increase" &&
     options$improvementDirection != 1 &&
-    options$improvementDirection != "decrease" &&
+    tolower(options$improvementDirection) != "decrease" &&
     options$improvementDirection != -1
   ) {
     stop("spc: options$improvementDirection argument must equal 'increase', 'decrease', 1, or -1.")

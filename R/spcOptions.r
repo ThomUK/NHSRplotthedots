@@ -85,11 +85,11 @@ spcOptions <- function(rebase = NULL,
     } else {
       if (is.numeric(improvementDirection)) {
         if (improvementDirection != 1 && improvementDirection != -1) {
-          stop("Improvment direction should be set as 1 for 'increase' or -1 for 'decrease'.")
+          stop("Improvement direction should be set as 1 for 'increase' or -1 for 'decrease'.")
         }
       } else if (is.character(improvementDirection)) {
-        if (improvementDirection != "increase" && improvementDirection != "decrease") {
-          stop("Improvment direction should be set as 'increase' or 'decrease'.")
+        if (tolower(improvementDirection) != "increase" && tolower(improvementDirection) != "decrease") {
+          stop("Improvement direction should be set as 'increase' or 'decrease'.")
         }
       } else {
         stop("Improvement direction should be numeric (1 or -1) or character (increase or decrease).")

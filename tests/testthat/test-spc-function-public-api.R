@@ -150,6 +150,23 @@ test_that("improvement direction can be set as 'decrease'", {
   # TODO: add assertion for point colours
 })
 
+test_that("capitalisation differences of improvement direction are handled gracefully", {
+  # arrange
+  data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+  date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
+  df <- tibble(data, date)
+  options <- list(
+    improvementDirection = "InCREaSe"
+  )
+
+  # act
+  result <- suppressMessages(spc(df, "data", "date", options = options))
+
+  # assert
+  expect_s3_class(result, "ggplot")
+  # TODO: add assertion for point colours
+})
+
 test_that("y axis values can be set as percentages using 'percentageYAxis = TRUE'", {
   # arrange
   data <- c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.8, 0.7, 0.6)
