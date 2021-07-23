@@ -14,7 +14,7 @@ test_that("spc function can create a ggplot", {
   expect_identical(result$labels$title, "SPC Chart of Data, starting 22/03/2021")
   expect_identical(result$labels$subtitle, NULL)
   expect_identical(result$labels$caption, NULL)
-  expect_identical(result$labels$x, "Date")
+  expect_identical(result$labels$x, NULL)
   expect_identical(result$labels$y, "Data")
   # default date format
   expect_identical(ggplot_build(result)$layout$panel_scales_x[[1]]$labels[[1]], "22/03/21")
@@ -206,6 +206,23 @@ test_that("improvement direction can be set as 'decrease'", {
   df <- tibble(data, date)
   options <- list(
     improvementDirection = "decrease"
+  )
+
+  # act
+  result <- suppressMessages(spc(df, "data", "date", options = options))
+
+  # assert
+  expect_s3_class(result, "ggplot")
+  # TODO: add assertion for point colours
+})
+
+test_that("capitalisation differences of improvement direction are handled gracefully", {
+  # arrange
+  data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+  date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
+  df <- tibble(data, date)
+  options <- list(
+    improvementDirection = "InCREaSe"
   )
 
   # act

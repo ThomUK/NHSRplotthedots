@@ -81,9 +81,9 @@ spc <- function(.data,
   # Declare improvement direction as integer
   improvementDirection <- if (is.null(options$improvementDirection)) {
     1
-  } else if (options$improvementDirection == "increase") {
+  } else if (tolower(options$improvementDirection) == "increase") {
     1
-  } else if (options$improvementDirection == "decrease") {
+  } else if (tolower(options$improvementDirection) == "decrease") {
     -1
   } else {
     options$improvementDirection
@@ -118,7 +118,7 @@ spc <- function(.data,
   )
 
   # set x axis label
-  xlabel <- ifelse(is.null(options$xAxisLabel), capitalise(dateField), options$xAxisLabel)
+  xlabel <- options$xAxisLabel
 
   # set y axis label
   ylabel <- ifelse(is.null(options$yAxisLabel), capitalise(valueField), options$yAxisLabel)
