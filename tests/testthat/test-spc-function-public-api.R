@@ -104,7 +104,7 @@ test_that("limits can be rebased at an intervention point (using the vector of d
   date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
   df <- tibble(data, date)
   options <- list(
-    rebase = c("2021-03-25")
+    rebase = "2021-03-25"
   )
 
   # act
