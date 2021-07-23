@@ -103,16 +103,16 @@ spc <- function(.data,
   }
 
   # set point size
-  pointSize <- ifelse(is.null(options$pointSize), 2, options$pointSize)
+  pointSize <- ifelse(is.null(options$pointSize), 4, options$pointSize)
 
   # set x axis date format
-  xAxisDateFormat <- ifelse(is.null(options$xAxisDateFormat), "%d/%m/%Y", options$xAxisDateFormat)
+  xAxisDateFormat <- ifelse(is.null(options$xAxisDateFormat), "%d/%m/%y", options$xAxisDateFormat)
 
   # set main plot title
   plottitle <- ifelse(is.null(options$mainTitle), "SPC Chart", options$mainTitle)
 
   # set x axis label
-  xlabel <- ifelse(is.null(options$xAxisLabel), capitalise(dateField), options$xAxisLabel)
+  xlabel <- options$xAxisLabel
 
   # set y axis label
   ylabel <- ifelse(is.null(options$yAxisLabel), capitalise(valueField), options$yAxisLabel)
