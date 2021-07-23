@@ -42,7 +42,12 @@ validateParameters <- function(df, valueField, dateField, facetField, options) {
 
   # if provided, options$rebase must be of character type, length 1, and a column name from within the data frame OR a vector of dates
   if (!is.null(options$rebase)) {
-    if(!all(isDate(options$rebase))){
+    if (all(isDate(options$rebase))) {
+      if (all(as.Date(options$rebase) %in% df[[dateField]]) == FALSE) {
+        # if the rebase vector contains a date that is missing from the dataset
+        stop("spc: options$rebase argument contains a data that falls outside the range of the dataset.")
+      }
+    } else {
       if (!is.character(options$rebase)) {
         stop("spc: options$rebase argument must be of type 'character'.")
       }
