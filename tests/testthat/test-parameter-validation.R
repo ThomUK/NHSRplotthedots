@@ -200,6 +200,22 @@ test_that("error when options$rebase is not a column in the data frame", {
   expect_error(p(), "spc:")
 })
 
+test_that("error when options$rebase is a vector but not all values are dates in the form '%y-%m-%d'", {
+  # arrange
+  data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+  date <- seq(as.Date("2021-03-22"), by = 1, length.out = 12)
+  df <- tibble(data, date)
+  options <- list(
+    rebase = c("2021-03-25", "not a date")
+  )
+
+  # act
+  p <- function() spc(df, "data", "date", options = options)
+
+  # assert
+  expect_error(p(), "spc:")
+})
+
 # options$improvementDirection parameter
 test_that("error when options$improvementDirection is an invalid character vector", {
   # arrange
