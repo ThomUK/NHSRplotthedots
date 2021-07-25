@@ -33,7 +33,7 @@ createGgplot <- function(df, facetField, plotOptions) {
     geom_line(aes(y = .data$lpl), linetype = "dashed", size = lineSize, color = .darkgrey) +
     geom_line(aes(y = .data$target), linetype = "dashed", size = lineSize, color = .purple, na.rm = TRUE) +
     geom_line(aes(y = .data$trajectory), linetype = "dashed", size = lineSize, color = .red, na.rm = TRUE) +
-    geom_line(aes(y = mean)) +
+    geom_line(aes(y = mean), color = "black") +
     geom_line(color = .darkgrey, size = lineSize) +
     geom_point(color = .darkgrey, size = plotOptions$pointSize)
 
@@ -66,10 +66,12 @@ createGgplot <- function(df, facetField, plotOptions) {
       labels = format(plotOptions$xaxislabels, format = plotOptions$xAxisDateFormat)
     ) +
     theme(
-      plot.margin = unit(c(5, 5, 5, 5), "mm"), # 5mm of white space around plot edge
+      plot.background = element_rect(color = "grey", size = 1), # border around whole plot
+      plot.margin = unit(c(5, 5, 5, 5), "mm"), #5mm of white space around plot edge
       axis.text.x = element_text(angle = 90, hjust = 1),
-      panel.grid.major.x = element_blank(), # remove major x gridlines
-      panel.grid.minor.x = element_blank() # remove minor x gridlines
+      panel.grid = element_line(color = "grey70"), # gridline colour
+      panel.grid.major.x = element_blank(), #remove major x gridlines
+      panel.grid.minor.x = element_blank() #remove minor x gridlines
     )
 
   # if the plot is not faceted (ie it's the default facet column name)
