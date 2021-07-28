@@ -31,8 +31,8 @@ createGgplot <- function(df, facetField, plotOptions) {
     theme_minimal() +
     geom_line(aes(y = .data$upl), linetype = "dashed", size = lineSize, color = .darkgrey) +
     geom_line(aes(y = .data$lpl), linetype = "dashed", size = lineSize, color = .darkgrey) +
-    geom_line(aes(y = .data$target), linetype = "dashed", size = lineSize, color = .purple, na.rm = TRUE) +
-    geom_line(aes(y = .data$trajectory), linetype = "dashed", size = lineSize, color = .red, na.rm = TRUE) +
+    geom_line(aes(y = .data$target), linetype = "longdash", size = lineSize * 0.7, color = .red, na.rm = TRUE) +
+    geom_line(aes(y = .data$trajectory), linetype = "dashed", size = lineSize, color = .purple, na.rm = TRUE) +
     geom_line(aes(y = mean), color = "black") +
     geom_line(color = .darkgrey, size = lineSize) +
     geom_point(color = .darkgrey, size = plotOptions$pointSize)
