@@ -1,9 +1,10 @@
-pandoc: 2.7.3
-pkgdown: 2.0.1
+pandoc: 2.19.2
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   deviations: deviations.html
   intro: intro.html
   number-of-points-required: number-of-points-required.html
-last_built: 2021-12-03T20:23Z
+  other-spc-tools: other-spc-tools.html
+last_built: 2023-11-29T19:31Z
 

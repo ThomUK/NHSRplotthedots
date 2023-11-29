@@ -4,6 +4,9 @@
     <loc>/404.html</loc>
   </url>
   <url>
+    <loc>/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
     <loc>/LICENSE-text.html</loc>
   </url>
   <url>
@@ -22,6 +25,9 @@
     <loc>/articles/number-of-points-required.html</loc>
   </url>
   <url>
+    <loc>/articles/other-spc-tools.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -34,10 +40,22 @@
     <loc>/pull_request_template.html</loc>
   </url>
   <url>
+    <loc>/reference/GeomPTDIcon.html</loc>
+  </url>
+  <url>
+    <loc>/reference/NHSRplotthedots-package.html</loc>
+  </url>
+  <url>
+    <loc>/reference/geom_ptd_icon.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
     <loc>/reference/ptd_create_ggplot.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ptd_create_plotly.html</loc>
   </url>
   <url>
     <loc>/reference/ptd_rebase.html</loc>
